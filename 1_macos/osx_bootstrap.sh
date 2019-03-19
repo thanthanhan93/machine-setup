@@ -139,6 +139,7 @@ brew cask install ${FONTS[@]}
 echo "Installing Python packages..."
 PYTHON_PACKAGES=(
     ipython
+    pylint
     #virtualenv
     #virtualenvwrapper
 )
