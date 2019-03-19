@@ -22,6 +22,7 @@
 # - https://gist.github.com/MatthewMueller/e22d9840f9ea2fee4716
 # - https://news.ycombinator.com/item?id=8402079
 # - http://notes.jerzygangi.com/the-best-pgp-tutorial-for-mac-os-x-ever/
+# - https://sourabhbajaj.com/mac-setup/
 
 echo "Starting bootstrapping"
 
@@ -50,6 +51,7 @@ brew install findutils
 brew install bash
 
 PACKAGES=(
+    neofetch
     ack
     autoconf
     automake
@@ -91,60 +93,54 @@ PACKAGES=(
 )
 
 echo "Installing packages..."
-brew install --appdir="/Applications" ${PACKAGES[@]}
+brew install ${PACKAGES[@]}
 
 echo "Cleaning up..."
 brew cleanup
 
+# install pip
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
 echo "Installing cask..."
 #brew install caskroom/cask/brew-cask
 
 CASKS=(
-#    dropbox
     firefox
-#    flux
     google-chrome
     iterm2
-#    macvim
-    skype
     slack
     spectacle
-    vagrant
-    virtualbox
-    vlc
-    deluge
     spotify
-    spotify-notifications
     google-backup-and-sync
-    pycharm
-    calibre # ebooks library
     osxfuse
-    alfred
-    telegram
     visual-studio-code
-)
+    anaconda
+) 
 
 echo "Installing cask apps..."
-brew cask install --appdir="/Applications" ${CASKS[@]}
+brew cask install ${CASKS[@]}
 
 #echo "Installing fonts..."
 brew tap caskroom/fonts
 FONTS=(
     font-inconsolata
     font-hack-nerd-font
-#    font-roboto
-#    font-clear-sans
+    font-roboto
+    font-clear-sans
+    font-meslo-for-powerline
 )
 brew cask install ${FONTS[@]}
 
 echo "Installing Python packages..."
 PYTHON_PACKAGES=(
     ipython
-    virtualenv
-    virtualenvwrapper
+    #virtualenv
+    #virtualenvwrapper
 )
 sudo pip install ${PYTHON_PACKAGES[@]}
 
@@ -176,19 +172,7 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
-# Disable "natural" scroll
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
-
-echo "Creating folder structure..."
-[[ ! -d ~/Documents/workspace ]] && mkdir ~/Documents/workspace
-[[ ! -d ~/Documents/apps]] && mkdir ~/Documents/apps
-[[ ! -d ~/Documents/library]] && mkdir ~/Documents/library
-
+# cp iterm zsh config file
+cp ../terminal_stuff/com.googlecode.iterm2.plist ~/Library/Prferences/com.googlecode.iterm2.plist
+cp ../terminal_stuff/.zshrc ~
 echo "Bootstrapping complete"
-#echo "Anaconda"
-#wget https://repo.continuum.io/archive/Anaconda2-5.0.1-MacOSX-x86_64.sh -O ~/Downloads/anaconda.sh
-#bash ~/Downloads/anaconda.sh -b -p $HOME/anaconda
-#mkdir -p ~/Library/LaunchAgents
-#cp /Users/bqm/anaconda/org.freedesktop.dbus-session.plist ~/Library/LaunchAgents/
-#launchctl load -w ~/Library/LaunchAgents/org.freedesktop.dbus-session.plist
-#export PATH="$HOME/anaconda/bin:$PATH"

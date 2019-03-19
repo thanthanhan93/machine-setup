@@ -11,7 +11,7 @@ code --install-extension PeterJausovec.vscode-docker
 code --install-extension robertohuertasm.vscode-icons
 code --install-extension stkb.rewrap
 code --install-extension VisualStudioExptTeam.vscodeintellicode
-code --install-extension vscodevim.vim
+code --install-extension njpwerner.autodocstring
 code --install-extension wholroyd.jinja
 code --install-extension zhuangtongfa.Material-theme
 code --install-extension zxh404.vscode-proto3
