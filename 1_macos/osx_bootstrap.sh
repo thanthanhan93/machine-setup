@@ -174,6 +174,8 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # cp iterm zsh config file
+echo "copying iterm settings"
 cp ../terminal_stuff/com.googlecode.iterm2.plist ~/Library/Prferences/com.googlecode.iterm2.plist
+echo "copying zsh settings"
 cp ../terminal_stuff/.zshrc ~
 echo "Bootstrapping complete"

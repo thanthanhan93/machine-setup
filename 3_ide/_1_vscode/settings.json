@@ -1,0 +1,31 @@
+{
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "files.autoSave": "onFocusChange",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "One Dark Pro Vivid",
+    "terminal.external.osxExec": "iTerm.app",
+    "python.jediEnabled": false,
+    "python.pythonPath": "/Users/b.minh/link/dh_data/env_dh/bin/python",
+    
+    "jupyter.appendResults": true,
+    "editor.wordWrap": "wordWrapColumn",
+    
+    "editor.wordWrapColumn": 80,
+    "editor.rulers": [
+        80
+    ],
+    "workbench.activityBar.visible": true,
+    "editor.renderWhitespace": "all",
+    "editor.fontFamily": "inconsolata",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 23,
+    "explorer.confirmDelete": false,
+    "rewrap.wrappingColumn": 80,
+    "python.linting.pylintEnabled": false,
+    "python.linting.pylamaEnabled": true,
+    "python.linting.pylamaArgs": ["-o", "setting.ini"],
+    "python.linting.enabled": true,
+    "python.formatting.provider": "autopep8",
+    "workbench.startupEditor": "newUntitledFile"
+}
