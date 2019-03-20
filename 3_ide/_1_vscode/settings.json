@@ -6,7 +6,6 @@
     "workbench.colorTheme": "One Dark Pro Vivid",
     "terminal.external.osxExec": "iTerm.app",
     "python.jediEnabled": false,
-    "python.pythonPath": "/Users/b.minh/link/dh_data/env_dh/bin/python",
     
     "jupyter.appendResults": true,
     "editor.wordWrap": "wordWrapColumn",
